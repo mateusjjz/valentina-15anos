@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Convite Especial — Valentina 15 Anos</title>
+  <meta name="description" content="Você recebeu um convite especial para os 15 anos da Valentina! Toque para abrir." />
+  <meta property="og:title" content="Valentina — 15 Anos (Convite Interativo)" />
+  <meta property="og:description" content="Você recebeu um convite especial! Toque para abrir e deslize pelos slides." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#4a0525" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css?v=5" />
+</head>
+<body>
+  <!-- Ambient Background for Desktop Screens -->
+  <div class="ambient-bg" aria-hidden="true"></div>
+
+  <!-- Main Invitation Wrapper -->
+  <main class="invitation-shell">
+    <!-- Top Progress Indicators (Stories / Carousel style) -->
+    <div class="progress-bar-container" id="progressBar" aria-label="Progresso dos slides"></div>
+
+    <!-- Desktop Navigation Buttons -->
+    <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Slide anterior" title="Slide anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="nav-arrow nav-next" id="nextBtn" aria-label="Próximo slide" title="Próximo slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <!-- Phone Viewport Card -->
+    <div class="phone-frame" id="phoneFrame">
+      <!-- Floating Sparkles Canvas -->
+      <canvas id="sparklesCanvas" class="sparkles-canvas" aria-hidden="true"></canvas>
+
+      <!-- Horizontal Slides Track -->
+      <div class="slides-viewport" id="slidesViewport">
+        <div class="slides-track" id="slidesTrack">
+
+          <!-- ==================== SLIDE 1 (1/9) ==================== -->
+          <section class="slide slide-1 is-active" data-index="0" aria-label="Slide 1 de 9">
+            <!-- Top-left corner ribbon & bow -->
+            <div class="corner-bow-top-left" aria-hidden="true">
+              <svg viewBox="0 0 220 220" class="bow-svg">
+                <defs>
+                  <linearGradient id="glitterBand" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#a8a8b3" />
+                    <stop offset="30%" stop-color="#ffffff" />
+                    <stop offset="50%" stop-color="#b99eb5" />
+                    <stop offset="75%" stop-color="#f5e6f0" />
+                    <stop offset="100%" stop-color="#7c6c77" />
+                  </linearGradient>
+                  <linearGradient id="pinkSatin" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff5ca8" />
+                    <stop offset="45%" stop-color="#d4146c" />
+                    <stop offset="80%" stop-color="#7a0538" />
+                    <stop offset="100%" stop-color="#ff3d96" />
+                  </linearGradient>
+                  <linearGradient id="pinkSatinDark" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#5e0329" />
+                    <stop offset="50%" stop-color="#b80d57" />
+                    <stop offset="100%" stop-color="#ff66b0" />
+                  </linearGradient>
+                  <filter id="bowShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="2" dy="5" stdDeviation="5" flood-color="#1a000c" flood-opacity="0.75" />
+                  </filter>
+                </defs>
+                <!-- Diagonal silver glitter band -->
+                <polygon points="-20,135 135,-20 170,-20 -20,170" fill="url(#glitterBand)" opacity="0.9" />
+                <!-- Ribbon tails -->
+                <path d="M52,62 C40,105 22,135 8,162 L32,155 L45,172 C55,135 62,102 68,68 Z" fill="url(#pinkSatinDark)" filter="url(#bowShadow)" />
+                <path d="M68,52 C105,40 135,25 162,12 L152,35 L168,48 C132,58 100,64 68,68 Z" fill="url(#pinkSatinDark)" filter="url(#bowShadow)" />
+                <!-- Left bow loop -->
+                <path d="M58,58 C22,22 -5,48 15,82 C30,106 55,78 62,62 Z" fill="url(#pinkSatin)" filter="url(#bowShadow)" />
+                <!-- Right bow loop -->
+                <path d="M62,58 C82,28 112,32 95,68 C80,96 42,88 58,62 Z" fill="url(#pinkSatin)" filter="url(#bowShadow)" transform="rotate(-35 65 55)" />
+                <!-- Center knot -->
+                <ellipse cx="60" cy="60" rx="14" ry="11" transform="rotate(-45 60 60)" fill="url(#pinkSatin)" filter="url(#bowShadow)" />
+              </svg>
+            </div>
+
+            <div class="slide-inner">
+              <!-- Tiara Image / Graphic -->
+              <div class="tiara-wrapper tiara-small">
+                <img src="tiara.png?v=3" alt="Coroa Real" class="tiara-img" onerror="this.style.display='none'" />
+              </div>
+
+              <!-- Heart Divider -->
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♥</span>
+                <span class="line"></span>
+              </div>
+
+              <p class="subtitle-serif">Você recebeu um</p>
+              <h1 class="script-heading glow-text">convite especial...</h1>
+
+              <p class="small-instruction">
+                Toque para abrir e<br />descobrir essa surpresa!
+              </p>
+
+              <!-- Interactive Open Button -->
+              <button class="heart-open-btn" id="openInviteBtn" aria-label="Abrir convite">
+                <span class="btn-ring-outer"></span>
+                <span class="btn-ring-inner">
+                  <svg viewBox="0 0 24 24" class="heart-svg">
+                    <defs>
+                      <radialGradient id="heartGrad" cx="35%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#ff99cc" />
+                        <stop offset="45%" stop-color="#ff1a8c" />
+                        <stop offset="100%" stop-color="#99004d" />
+                      </radialGradient>
+                    </defs>
+                    <path fill="url(#heartGrad)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+            <div class="glitter-corner-bl" aria-hidden="true"></div>
+            <span class="slide-counter">1/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 2 (2/9) ==================== -->
+          <section class="slide slide-2" data-index="1" aria-label="Slide 2 de 9">
+            <!-- Top spotlight beams -->
+            <div class="spotlight-beams" aria-hidden="true"></div>
+
+            <div class="slide-inner">
+              <div class="tiara-wrapper tiara-large">
+                <img src="tiara.png?v=3" alt="Coroa Valentina 15 Anos" class="tiara-img" onerror="this.style.display='none'" />
+              </div>
+
+              <h2 class="debutante-name" id="debutanteNameTitle">VALENTINA</h2>
+              <div class="fifteen-wrapper">
+                <span class="script-15">15 anos</span>
+                <svg class="swirl-underline" viewBox="0 0 260 55" fill="none">
+                  <path d="M15,28 C65,5 110,42 130,22 C150,42 195,5 245,28" stroke="url(#goldPinkLine)" stroke-width="1.5" stroke-linecap="round" />
+                  <path d="M55,38 C95,22 165,22 205,38" stroke="url(#goldPinkLine)" stroke-width="1" stroke-linecap="round" opacity="0.75" />
+                  <defs>
+                    <linearGradient id="goldPinkLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="transparent" />
+                      <stop offset="25%" stop-color="#ff99cc" />
+                      <stop offset="50%" stop-color="#ffffff" />
+                      <stop offset="75%" stop-color="#ff99cc" />
+                      <stop offset="100%" stop-color="transparent" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <span class="tiny-heart">♥</span>
+              </div>
+            </div>
+
+            <div class="bottom-stage-glow" aria-hidden="true"></div>
+            <span class="slide-counter">2/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 3 (3/9) ==================== -->
+          <section class="slide slide-3" data-index="2" aria-label="Slide 3 de 9">
+            <!-- Top right glowing butterfly -->
+            <div class="butterfly-decor" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none">
+                <path d="M62,62 C48,25 12,18 18,48 C22,68 45,68 60,64 C40,72 28,95 45,102 C58,107 62,82 62,66" stroke="#ff85c0" stroke-width="1.4" opacity="0.75" />
+                <path d="M62,62 C76,20 112,15 106,46 C102,66 78,66 64,64 C84,72 96,95 78,102 C65,107 62,82 62,66" stroke="#ffb3d9" stroke-width="1.4" opacity="0.85" />
+                <path d="M62,48 L62,78" stroke="#ffd6eb" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M62,48 C56,38 50,36 46,38 M62,48 C68,38 74,36 78,38" stroke="#ffb3d9" stroke-width="1" />
+              </svg>
+            </div>
+
+            <div class="slide-inner">
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♥</span>
+                <span class="line"></span>
+              </div>
+
+              <blockquote class="poetic-quote">
+                Um capítulo inesquecível<br />
+                começa a ser escrito<br />
+                e você é meu convidado especial<br />
+                para viver essa história comigo.
+              </blockquote>
+
+              <div class="ornament-divider">
+                <svg viewBox="0 0 200 30" fill="none">
+                  <path d="M20,15 Q60,2 90,15 M110,15 Q140,2 180,15" stroke="#ff99cc" stroke-width="1.2" opacity="0.7" />
+                </svg>
+                <span class="heart-icon">♥</span>
+              </div>
+            </div>
+
+            <!-- Light trails bottom right -->
+            <div class="light-wave-br" aria-hidden="true">
+              <svg viewBox="0 0 300 180" fill="none">
+                <path d="M-20,180 Q140,140 310,20" stroke="url(#goldPinkLine)" stroke-width="2" opacity="0.7" />
+                <path d="M20,190 Q170,130 320,55" stroke="url(#goldPinkLine)" stroke-width="1" opacity="0.45" />
+              </svg>
+            </div>
+
+            <span class="slide-counter">3/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 4 (4/9) ==================== -->
+          <section class="slide slide-4" data-index="3" aria-label="Slide 4 de 9">
+            <div class="floral-corner-bl" aria-hidden="true">
+              <svg viewBox="0 0 120 160" fill="none">
+                <path d="M10,160 C25,120 45,95 85,70 M30,130 C18,110 22,90 35,80 M45,112 C55,95 75,92 88,98 M22,145 C40,140 55,145 65,155" stroke="#ff80bf" stroke-width="1.2" opacity="0.45" stroke-linecap="round" />
+              </svg>
+            </div>
+
+            <div class="slide-inner">
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♥</span>
+                <span class="line"></span>
+              </div>
+
+              <div class="info-list">
+                <!-- Data -->
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="4" y="6" width="24" height="22" rx="3" />
+                      <line x1="4" y1="12" x2="28" y2="12" />
+                      <line x1="10" y1="3" x2="10" y2="8" stroke-linecap="round" />
+                      <line x1="22" y1="3" x2="22" y2="8" stroke-linecap="round" />
+                      <circle cx="10" cy="17" r="1" fill="currentColor" />
+                      <circle cx="16" cy="17" r="1" fill="currentColor" />
+                      <circle cx="22" cy="17" r="1" fill="currentColor" />
+                      <circle cx="10" cy="22" r="1" fill="currentColor" />
+                      <circle cx="16" cy="22" r="1" fill="currentColor" />
+                      <circle cx="22" cy="22" r="1" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div class="info-text">
+                    <span class="info-label">Data</span>
+                    <strong class="info-value" id="eventDateText">16 de janeiro de 2027</strong>
+                  </div>
+                </div>
+
+                <!-- Horário -->
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <circle cx="16" cy="16" r="12" />
+                      <polyline points="16 9 16 16 21 19" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div class="info-text">
+                    <span class="info-label">Horário</span>
+                    <strong class="info-value" id="eventTimeText">20h</strong>
+                  </div>
+                </div>
+
+                <!-- Traje -->
+                <div class="info-item">
+                  <div class="info-icon">
+                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12,5 L14,9 L18,9 L20,5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M13,9 L11,14 L16,15 L21,14 L19,9 Z" stroke-linejoin="round" />
+                      <path d="M11,14 L6,27 L26,27 L21,14" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div class="info-text">
+                    <span class="info-label">Traje</span>
+                    <strong class="info-value" id="eventDressText">Esporte fino</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♦</span>
+                <span class="line"></span>
+              </div>
+
+              <p class="script-footer">
+                Será uma alegria<br />ter você conosco!
+              </p>
+            </div>
+
+            <span class="slide-counter">4/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 5 (5/9) ==================== -->
+          <section class="slide slide-5" data-index="4" aria-label="Slide 5 de 9">
+            <div class="floral-corner-tl" aria-hidden="true"></div>
+            <div class="floral-corner-bl" aria-hidden="true"></div>
+
+            <div class="slide-inner">
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♥</span>
+                <span class="line"></span>
+              </div>
+
+              <div class="section-header-inline">
+                <svg viewBox="0 0 24 24" class="inline-icon" fill="none" stroke="currentColor" stroke-width="1.6">
+                  <path d="M12 21s-7-6.75-7-12a7 7 0 1 1 14 0c0 5.25-7 12-7 12z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                <span>Local</span>
+              </div>
+
+              <h3 class="venue-name" id="venueNameText">
+                Associação Atlética<br />Minuano
+              </h3>
+
+              <p class="venue-address" id="venueAddressText">
+                Avenida Amazonas, 3001<br />
+                Bairro Universitário<br />
+                Lajeado/RS<br />
+                CEP 95914-650
+              </p>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Associa%C3%A7%C3%A3o+Atl%C3%A9tica+Minuano+Avenida+Amazonas+3001+Lajeado+RS"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pill-action-btn"
+                id="mapBtn"
+              >
+                <span class="pill-icon-circle">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z" />
+                  </svg>
+                </span>
+                <span class="pill-label">VER NO MAPA</span>
+                <span class="pill-arrow">›</span>
+              </a>
+            </div>
+
+            <span class="slide-counter">5/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 6 (6/9) ==================== -->
+          <section class="slide slide-6" data-index="5" aria-label="Slide 6 de 9">
+            <div class="floral-corner-bl" aria-hidden="true"></div>
+
+            <div class="slide-inner">
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♥</span>
+                <span class="line"></span>
+              </div>
+
+              <div class="section-header-inline">
+                <svg viewBox="0 0 24 24" class="inline-icon whatsapp-header-icon" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z" />
+                </svg>
+                <span>Confirme sua presença</span>
+              </div>
+
+              <p class="rsvp-desc">
+                Por favor, confirme sua presença<br />
+                até o dia <strong class="rsvp-deadline">10/01</strong><br />
+                com a nossa cerimonialista:
+              </p>
+
+              <div class="cerimonialista-block">
+                <span class="script-name" id="cerimonialistaName">Lidiane</span>
+                <span class="cerimonialista-role">Cerimonialista</span>
+              </div>
+
+              <a
+                href="https://wa.me/5551980276317?text=Ol%C3%A1%20Lidiane!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Valentina!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="pill-action-btn"
+                id="whatsappBtn"
+              >
+                <svg viewBox="0 0 24 24" class="whatsapp-btn-icon" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z" />
+                </svg>
+                <span class="pill-label" id="whatsappPhoneText">(51) 98027-6317</span>
+              </a>
+            </div>
+
+            <span class="slide-counter">6/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 7 (7/9) ==================== -->
+          <section class="slide slide-7" data-index="6" aria-label="Slide 7 de 9">
+            <div class="slide-inner">
+              <!-- Top Gift Icon Divider -->
+              <div class="top-icon-divider">
+                <span class="line"></span>
+                <svg viewBox="0 0 32 32" class="top-outline-icon" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="5" y="13" width="22" height="15" rx="1.5" />
+                  <rect x="3" y="9" width="26" height="4" rx="1" />
+                  <line x1="16" y1="9" x2="16" y2="28" />
+                  <path d="M16,9 C12,9 9,6 11,4 C13,2 16,5 16,9 Z" />
+                  <path d="M16,9 C20,9 23,6 21,4 C19,2 16,5 16,9 Z" />
+                </svg>
+                <span class="line"></span>
+              </div>
+
+              <p class="mimo-subtitle">Mimo para a</p>
+              <h3 class="script-heading-medium">Debutante</h3>
+
+              <p class="mimo-text">
+                Sua presença já é um presente<br />
+                muito especial, mas se você<br />
+                deseja presentear a Valentina,<br />
+                preparamos uma opção prática<br />
+                e segura através de Pix.
+              </p>
+
+              <!-- Pix Logo -->
+              <div class="pix-logo-box" aria-label="Pix">
+                <svg viewBox="0 0 160 52" class="pix-svg">
+                  <!-- Pix diamond symbol -->
+                  <g transform="translate(8, 8)" fill="none" stroke="#f2d9e6" stroke-width="2.2">
+                    <path d="M18,2 L34,18 L18,34 L2,18 Z" stroke-linejoin="round" />
+                    <path d="M11,11 L16,16 C17.1,17.1 18.9,17.1 20,16 L25,11" />
+                    <path d="M11,25 L16,20 C17.1,18.9 18.9,18.9 20,20 L25,25" />
+                  </g>
+                  <!-- pix wordmark -->
+                  <text x="54" y="34" fill="#f7e6ef" font-family="Montserrat, sans-serif" font-weight="600" font-size="30" letter-spacing="-1">pix</text>
+                  <text x="55" y="45" fill="#d9a3be" font-family="Montserrat, sans-serif" font-weight="400" font-size="6.5" letter-spacing="0.4">powered by Banco Central</text>
+                </svg>
+              </div>
+
+              <p class="pix-note">
+                Qualquer valor é recebido<br />com muito carinho!
+              </p>
+
+              <button type="button" class="pill-action-btn" id="pixBtn">
+                <span class="pill-icon-outline">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </span>
+                <span class="pill-label">CHAVE PIX</span>
+              </button>
+            </div>
+
+            <!-- Bottom Bow Decoration -->
+            <div class="bottom-bow-decor" aria-hidden="true">
+              <svg viewBox="0 0 300 70" fill="none">
+                <path d="M-10,55 Q150,10 310,55" stroke="url(#glitterBand)" stroke-width="6" opacity="0.75" />
+                <path d="M150,32 C125,12 105,22 115,40 C123,52 142,40 150,32 Z" fill="url(#pinkSatin)" />
+                <path d="M150,32 C175,12 195,22 185,40 C177,52 158,40 150,32 Z" fill="url(#pinkSatin)" />
+                <path d="M146,35 L130,64 L142,60 L148,42 Z" fill="url(#pinkSatinDark)" />
+                <path d="M154,35 L170,64 L158,60 L152,42 Z" fill="url(#pinkSatinDark)" />
+                <circle cx="150" cy="33" r="6" fill="#ff66b0" />
+              </svg>
+            </div>
+
+            <span class="slide-counter">7/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 8 (8/9) ==================== -->
+          <section class="slide slide-8" data-index="7" aria-label="Slide 8 de 9">
+            <div class="slide-inner">
+              <!-- Crown Top Icon -->
+              <div class="top-icon-divider">
+                <span class="line"></span>
+                <svg viewBox="0 0 40 28" class="top-outline-icon crown-outline" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M5,22 L8,9 L15,16 L20,5 L25,16 L32,9 L35,22 Z" stroke-linejoin="round" />
+                  <line x1="5" y1="25" x2="35" y2="25" stroke-linecap="round" />
+                  <circle cx="8" cy="6" r="1.3" fill="currentColor" />
+                  <circle cx="20" cy="2.5" r="1.5" fill="currentColor" />
+                  <circle cx="32" cy="6" r="1.3" fill="currentColor" />
+                </svg>
+                <span class="line"></span>
+              </div>
+
+              <p class="script-quote-large">
+                A sua presença<br />
+                faz toda a diferença<br />
+                nesse momento tão especial!
+              </p>
+
+              <div class="heart-divider">
+                <span class="line"></span>
+                <span class="heart-icon">♥</span>
+                <span class="line"></span>
+              </div>
+
+              <p class="with-love-label">Com carinho,</p>
+              <p class="script-signature" id="signatureName">Valentina</p>
+
+              <div class="v-heart-ornament" aria-hidden="true">
+                <svg viewBox="0 0 220 40" fill="none">
+                  <path d="M10,8 L95,28 L110,20 L125,28 L210,8" stroke="#ff99cc" stroke-width="1" opacity="0.6" />
+                </svg>
+                <span class="heart-icon">♥</span>
+              </div>
+            </div>
+
+            <div class="glitter-corner-bl" aria-hidden="true"></div>
+            <div class="glitter-corner-br" aria-hidden="true"></div>
+            <span class="slide-counter">8/9</span>
+          </section>
+
+          <!-- ==================== SLIDE 9 (9/9) ==================== -->
+          <section class="slide slide-9" data-index="8" aria-label="Slide 9 de 9">
+            <div class="slide-9-photo" id="slide9Photo"></div>
+            <div class="slide-9-overlay"></div>
+
+            <div class="slide-inner slide-9-inner">
+              <div class="ate-la-box">
+                <p class="script-ate-la">Até lá!</p>
+                <div class="v-heart-ornament small">
+                  <span class="heart-icon">♥</span>
+                </div>
+              </div>
+            </div>
+
+            <span class="slide-counter">9/9</span>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- Subtle Swipe Indicator -->
+      <div class="swipe-hint" id="swipeHint" aria-hidden="true">
+        <span>Deslize para o lado</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="13 6 19 12 13 18"></polyline>
+        </svg>
+      </div>
+    </div>
+  </main>
+
+  <!-- PIX MODAL -->
+  <div class="modal-backdrop" id="pixModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="pixModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="closePixModal" aria-label="Fechar">✕</button>
+      <div class="modal-heart">❖</div>
+      <h4 id="pixModalTitle" class="modal-title">Mimo para a Valentina</h4>
+      <p class="modal-subtitle">Utilize a chave Pix abaixo para enviar seu presente com carinho:</p>
+
+      <div class="pix-key-box">
+        <span class="pix-key-type" id="pixKeyType">Chave Pix (CPF)</span>
+        <code class="pix-key-value" id="pixKeyValue">04181663078</code>
+        <span class="pix-key-holder" id="pixKeyHolder">Valentina — 15 Anos</span>
+      </div>
+
+      <button type="button" class="copy-pix-btn" id="copyPixBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span id="copyPixBtnText">COPIAR CHAVE PIX</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js?v=4"></script>
+</body>
+</html>

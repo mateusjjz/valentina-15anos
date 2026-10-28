@@ -1,0 +1,1217 @@
+/* ==========================================================================
+   CONVITE INTERATIVO 15 ANOS — VALENTINA
+   Luxury Deep Magenta / Ruby / Rose Gold & Silver Sparkle Theme
+   ========================================================================== */
+
+:root {
+  --bg-deep: #290114;
+  --bg-mid: #5e052d;
+  --bg-glow: #9e0c4f;
+  --bg-bright: #d41970;
+  --pink-soft: #ffb3d9;
+  --pink-light: #ffe0f0;
+  --pink-neon: #ff2a8d;
+  --text-white: #fff7fb;
+  --text-muted: #f2cade;
+  --font-script: 'Great Vibes', cursive;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'lnum' 1;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #16000a;
+  color: var(--text-white);
+  font-family: var(--font-serif);
+  font-variant-numeric: lining-nums;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient blurred background for desktop viewers */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(196, 18, 97, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(145, 9, 70, 0.4), transparent 55%),
+    linear-gradient(135deg, #120008 0%, #2e0216 50%, #140009 100%);
+  z-index: 0;
+}
+
+/* Main Wrapper */
+.invitation-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Phone Viewport Card (Full screen on mobile, 9:16 card on desktop) */
+.phone-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  max-height: 860px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 35%, var(--bg-glow) 0%, var(--bg-mid) 48%, var(--bg-deep) 100%);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.85),
+    0 0 45px rgba(212, 25, 112, 0.3),
+    inset 0 0 2px rgba(255, 190, 225, 0.35);
+}
+
+@media (min-width: 500px) {
+  .phone-frame {
+    height: min(92dvh, 840px);
+    aspect-ratio: 9 / 16;
+    width: auto;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 179, 217, 0.28);
+  }
+}
+
+/* Top Stories-like Progress Bars */
+.progress-bar-container {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92%, 400px);
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.progress-segment {
+  height: 3px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.progress-segment:hover {
+  transform: scaleY(1.6);
+}
+
+.progress-segment.is-passed {
+  background: rgba(255, 194, 226, 0.75);
+}
+
+.progress-segment.is-current {
+  background: #ffffff;
+  box-shadow: 0 0 8px #ff66b3;
+}
+
+/* Desktop Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 185, 220, 0.45);
+  background: rgba(65, 4, 31, 0.65);
+  backdrop-filter: blur(8px);
+  color: #ffe6f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(255, 51, 153, 0.25);
+}
+
+.nav-arrow svg {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-arrow:hover:not(:disabled) {
+  background: rgba(180, 15, 90, 0.85);
+  border-color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 22px rgba(255, 102, 179, 0.75);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.nav-prev {
+  left: max(14px, calc(50% - 290px));
+}
+
+.nav-next {
+  right: max(14px, calc(50% - 290px));
+}
+
+@media (max-width: 640px) {
+  .nav-arrow {
+    width: 36px;
+    height: 36px;
+    background: rgba(45, 2, 22, 0.45);
+  }
+  .nav-prev {
+    left: 8px;
+  }
+  .nav-next {
+    right: 8px;
+  }
+}
+
+/* Floating Sparkles Canvas */
+.sparkles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Horizontal Slides Track */
+.slides-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.slides-track {
+  display: flex;
+  width: 900%;
+  height: 100%;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.slides-track.is-dragging {
+  transition: none;
+}
+
+/* Individual Slide Base */
+.slide {
+  position: relative;
+  width: calc(100% / 9);
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 28px 40px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(208, 22, 105, 0.65) 0%, rgba(102, 6, 49, 0.85) 52%, #2b0114 100%);
+}
+
+/* Subtle inner vignette & sparkle dust on every slide */
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 88%, rgba(255, 140, 200, 0.16) 0%, transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(255, 140, 200, 0.14) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, transparent 55%, rgba(18, 0, 8, 0.65) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.slide-inner {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  opacity: 0.4;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.slide.is-active .slide-inner {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Slide Number Counter (Bottom Right 1/9 .. 9/9) */
+.slide-counter {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  z-index: 10;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 225, 240, 0.78);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   COMMON ORNAMENTS & DIVIDERS
+   ========================================================================== */
+
+.heart-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82%;
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.heart-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 185, 222, 0.75), transparent);
+}
+
+.heart-divider .heart-icon {
+  font-size: 0.75rem;
+  color: #ffb8dc;
+  text-shadow: 0 0 8px rgba(255, 102, 179, 0.9);
+  line-height: 1;
+}
+
+.top-icon-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88%;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.top-icon-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 190, 225, 0.7), transparent);
+}
+
+.top-outline-icon {
+  width: 38px;
+  height: 38px;
+  color: #ffd6eb;
+  filter: drop-shadow(0 0 6px rgba(255, 105, 180, 0.6));
+}
+
+/* Tiara Images (Transparent PNG floating cleanly) */
+.tiara-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.tiara-small {
+  width: 215px;
+  height: 135px;
+  margin-bottom: -10px;
+}
+
+.tiara-large {
+  width: 280px;
+  height: 185px;
+  margin-bottom: -12px;
+}
+
+.tiara-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(255, 64, 160, 0.55));
+}
+
+/* ==========================================================================
+   SLIDE 1: CAPA ("Você recebeu um convite especial...")
+   ========================================================================== */
+
+.corner-bow-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 175px;
+  height: 175px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.bow-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.subtitle-serif {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: #fff2f8;
+  letter-spacing: 0.02em;
+  margin-top: 6px;
+}
+
+.script-heading {
+  font-family: var(--font-script);
+  font-size: 3.3rem;
+  font-weight: 400;
+  color: #ffcce6;
+  line-height: 1.05;
+  margin: -4px 0 8px;
+  text-shadow:
+    0 0 18px rgba(255, 77, 166, 0.8),
+    0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.small-instruction {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* Glowing Circular Heart Open Button */
+.heart-open-btn {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  transition: transform 0.25s ease;
+}
+
+.heart-open-btn:hover {
+  transform: scale(1.08);
+}
+
+.heart-open-btn:active {
+  transform: scale(0.95);
+}
+
+.btn-ring-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 210, 235, 0.75);
+  box-shadow:
+    0 0 20px rgba(255, 51, 153, 0.85),
+    inset 0 0 15px rgba(255, 102, 179, 0.65);
+  animation: pulseRing 2.2s infinite ease-in-out;
+}
+
+.btn-ring-inner {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #730638, #2b0114 85%);
+  border: 2.5px solid #e6c8d8;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.7),
+    inset 0 2px 8px rgba(255, 179, 217, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-svg {
+  width: 34px;
+  height: 34px;
+  filter: drop-shadow(0 0 10px rgba(255, 51, 153, 0.95));
+  animation: heartBeat 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.4;
+  }
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+/* ==========================================================================
+   SLIDE 2: VALENTINA 15 ANOS
+   ========================================================================== */
+
+.spotlight-beams {
+  position: absolute;
+  top: -15%;
+  left: -25%;
+  width: 150%;
+  height: 75%;
+  background: conic-gradient(
+    from 135deg at 50% 0%,
+    transparent 0deg,
+    rgba(255, 38, 142, 0.25) 18deg,
+    rgba(255, 150, 205, 0.52) 32deg,
+    rgba(255, 38, 142, 0.22) 45deg,
+    rgba(255, 165, 215, 0.55) 56deg,
+    rgba(255, 38, 142, 0.28) 70deg,
+    transparent 90deg
+  );
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.debutante-name {
+  font-family: var(--font-serif);
+  font-size: 3.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #ffb8dc 48%, #e063a3 85%, #ffd9ec 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 12px rgba(45, 0, 20, 0.85));
+  line-height: 1.05;
+}
+
+.fifteen-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.script-15 {
+  font-family: var(--font-script);
+  font-size: 4.3rem;
+  color: #ffe6f3;
+  text-shadow:
+    0 0 22px rgba(255, 51, 153, 0.85),
+    0 3px 8px rgba(0, 0, 0, 0.6);
+  line-height: 1;
+}
+
+.swirl-underline {
+  width: 230px;
+  height: 44px;
+  margin-top: -8px;
+}
+
+.tiny-heart {
+  font-size: 0.75rem;
+  color: #ff99cc;
+  margin-top: -12px;
+  text-shadow: 0 0 8px #ff3399;
+}
+
+.bottom-stage-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 10%;
+  width: 80%;
+  height: 95px;
+  background: radial-gradient(ellipse at center, rgba(255, 77, 166, 0.65) 0%, transparent 72%);
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   SLIDE 3: POETIC QUOTE ("Um capítulo inesquecível...")
+   ========================================================================== */
+
+.butterfly-decor {
+  position: absolute;
+  top: 72px;
+  right: 16px;
+  width: 96px;
+  height: 96px;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(255, 102, 179, 0.65));
+  animation: floatButterfly 4.5s ease-in-out infinite;
+}
+
+@keyframes floatButterfly {
+  0%, 100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(2deg);
+  }
+}
+
+.poetic-quote {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: #fff2f8;
+  margin: 18px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+.ornament-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+}
+
+.ornament-divider svg {
+  width: 100%;
+  height: 26px;
+}
+
+.ornament-divider .heart-icon {
+  font-size: 0.75rem;
+  color: #ffb3d9;
+  margin-top: -12px;
+}
+
+.light-wave-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 260px;
+  height: 150px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   SLIDE 4: DATA, HORÁRIO, TRAJE
+   ========================================================================== */
+
+.info-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 14px 0;
+  padding-left: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.info-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: #ffb8dc;
+  filter: drop-shadow(0 0 6px rgba(255, 77, 166, 0.5));
+}
+
+.info-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #f5c6df;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.info-value {
+  font-family: var(--font-sans);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.script-footer {
+  font-family: var(--font-script);
+  font-size: 2.3rem;
+  line-height: 1.15;
+  color: #ffd9ec;
+  margin-top: 8px;
+  text-shadow: 0 0 14px rgba(255, 77, 166, 0.65);
+}
+
+.floral-corner-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 115px;
+  height: 150px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   SLIDE 5 & 6: LOCAL & CONFIRME SUA PRESENÇA + PILL BUTTONS
+   ========================================================================== */
+
+.section-header-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffe6f2;
+  margin-top: 6px;
+}
+
+.inline-icon {
+  width: 24px;
+  height: 24px;
+  color: #ffb3d9;
+}
+
+.whatsapp-header-icon {
+  width: 34px;
+  height: 34px;
+  color: #ffd9ec;
+  filter: drop-shadow(0 0 8px rgba(255, 102, 179, 0.7));
+}
+
+.whatsapp-btn-icon {
+  width: 22px;
+  height: 22px;
+  color: #ffd9ec;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 153, 204, 0.6));
+}
+
+.venue-name {
+  font-family: var(--font-serif);
+  font-size: 1.62rem;
+  font-weight: 600;
+  line-height: 1.28;
+  color: #ffffff;
+  margin: 4px 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.venue-address {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  color: #fce8f3;
+  margin-bottom: 14px;
+}
+
+/* Glowing Pill Action Button (Ver no Mapa, WhatsApp, Chave Pix) */
+.pill-action-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 235px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 200, 230, 0.78);
+  background: linear-gradient(90deg, rgba(82, 5, 40, 0.85) 0%, rgba(145, 12, 72, 0.75) 50%, rgba(82, 5, 40, 0.85) 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.55),
+    0 0 18px rgba(255, 51, 153, 0.5),
+    inset 0 0 12px rgba(255, 153, 204, 0.3);
+  transition: all 0.25s ease;
+}
+
+.pill-action-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: #ffffff;
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.65),
+    0 0 28px rgba(255, 77, 166, 0.85),
+    inset 0 0 15px rgba(255, 179, 217, 0.5);
+}
+
+.pill-action-btn:active {
+  transform: scale(0.98);
+}
+
+.pill-icon-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffd9ec;
+  color: #80063d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+  box-shadow: 0 0 10px rgba(255, 179, 217, 0.8);
+}
+
+.pill-icon-circle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.pill-icon-outline {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid #ffd9ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd9ec;
+}
+
+.pill-icon-outline svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pill-arrow {
+  font-size: 1.35rem;
+  line-height: 1;
+  margin-left: 4px;
+  color: #ffcce6;
+}
+
+/* Slide 6 Specifics */
+.rsvp-desc {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  line-height: 1.45;
+  color: #f7d4e6;
+}
+
+.rsvp-deadline {
+  font-family: var(--font-sans);
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.cerimonialista-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6px 0 12px;
+}
+
+.script-name {
+  font-family: var(--font-script);
+  font-size: 3.6rem;
+  color: #ffd9ec;
+  line-height: 1.05;
+  text-shadow: 0 0 16px rgba(255, 77, 166, 0.65);
+}
+
+.cerimonialista-role {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  color: #f2bdd8;
+  margin-top: -4px;
+}
+
+/* ==========================================================================
+   SLIDE 7: MIMO PARA A DEBUTANTE (PIX)
+   ========================================================================== */
+
+.mimo-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: #ffe6f2;
+  margin-bottom: -12px;
+}
+
+.script-heading-medium {
+  font-family: var(--font-script);
+  font-size: 3.3rem;
+  font-weight: 400;
+  color: #ffd6eb;
+  line-height: 1.05;
+  text-shadow: 0 0 16px rgba(255, 77, 166, 0.65);
+}
+
+.mimo-text {
+  font-family: var(--font-serif);
+  font-size: 1.06rem;
+  line-height: 1.42;
+  color: #f7d9e8;
+}
+
+.pix-logo-box {
+  margin: 4px 0;
+}
+
+.pix-svg {
+  width: 145px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+}
+
+.pix-note {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #f2c2da;
+  margin-bottom: 4px;
+}
+
+.bottom-bow-decor {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bottom-bow-decor svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   SLIDE 8: MENSAGEM FINAL ("A sua presença faz toda a diferença...")
+   ========================================================================== */
+
+.script-quote-large {
+  font-family: var(--font-script);
+  font-size: 2.35rem;
+  line-height: 1.24;
+  color: #ffe6f3;
+  margin: 10px 0;
+  text-shadow: 0 0 15px rgba(255, 77, 166, 0.6);
+}
+
+.with-love-label {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  color: #f5c6de;
+  margin-top: 6px;
+}
+
+.script-signature {
+  font-family: var(--font-script);
+  font-size: 3.7rem;
+  color: #ffd9ec;
+  line-height: 1.05;
+  margin-top: -6px;
+  text-shadow: 0 0 18px rgba(255, 77, 166, 0.75);
+}
+
+.v-heart-ornament {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  margin-top: 10px;
+}
+
+.v-heart-ornament svg {
+  width: 100%;
+  height: 36px;
+}
+
+.v-heart-ornament .heart-icon {
+  font-size: 0.72rem;
+  color: #ffb3d9;
+  margin-top: -22px;
+}
+
+/* ==========================================================================
+   SLIDE 9: PHOTO CLOSING ("Até lá!")
+   ========================================================================== */
+
+.slide-9 {
+  padding-bottom: 52px;
+}
+
+.slide-9-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('slide9-bg.png');
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+  transform: scale(1.04);
+  transition: transform 4s ease;
+}
+
+.slide-9.is-active .slide-9-photo {
+  transform: scale(1);
+}
+
+.slide-9-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(45, 1, 22, 0.18) 0%,
+    rgba(65, 2, 32, 0.1) 50%,
+    rgba(40, 1, 19, 0.82) 100%
+  );
+  z-index: 2;
+}
+
+.slide-9-inner {
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.ate-la-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 54px;
+}
+
+.script-ate-la {
+  font-family: var(--font-script);
+  font-size: 3.8rem;
+  color: #ffe6f3;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.85),
+    0 0 22px rgba(255, 51, 153, 0.85);
+}
+
+/* ==========================================================================
+   SWIPE HINT & PIX MODAL
+   ========================================================================== */
+
+.swipe-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: rgba(255, 220, 238, 0.72);
+  pointer-events: none;
+  animation: nudgeRight 2.2s infinite ease-in-out;
+  transition: opacity 0.4s ease;
+}
+
+.swipe-hint svg {
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes nudgeRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(18, 0, 9, 0.78);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 22px;
+  padding: 28px 24px;
+  background: radial-gradient(circle at 50% 0%, #8a0b43 0%, #38021a 100%);
+  border: 1.5px solid rgba(255, 185, 222, 0.65);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(255, 51, 153, 0.45);
+  text-align: center;
+  transform: translateY(16px) scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-backdrop.is-open .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 190, 225, 0.35);
+  background: rgba(0, 0, 0, 0.25);
+  color: #ffe6f2;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal-heart {
+  font-size: 2rem;
+  color: #ff99cc;
+  margin-bottom: 6px;
+  text-shadow: 0 0 12px #ff3399;
+}
+
+.modal-title {
+  font-family: var(--font-script);
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #ffe6f2;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #f2c2da;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.pix-key-box {
+  background: rgba(20, 0, 10, 0.55);
+  border: 1px dashed rgba(255, 179, 217, 0.6);
+  border-radius: 14px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.pix-key-type {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff99cc;
+}
+
+.pix-key-value {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  user-select: all;
+  word-break: break-all;
+}
+
+.pix-key-holder {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: #e6b8cf;
+}
+
+.copy-pix-btn {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1.5px solid #ffd9ec;
+  background: linear-gradient(90deg, #b80d57, #ff2a8d, #b80d57);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 42, 141, 0.6);
+  transition: all 0.2s ease;
+}
+
+.copy-pix-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.copy-pix-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 28px rgba(255, 102, 179, 0.9);
+}
